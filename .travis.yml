@@ -24,10 +24,12 @@ before_install:
   # colorama needs to be upgraded to fix error when installed colorama 
   # version and required are different.
   - sudo pip3 install colorama==0.3.7
+  - sudo pip3 install -r test-requirements.txt
   - sudo pip3 install -r requirements.txt
 
 script:
   - npm test
+  - bash .misc/tests.sh
   - bash <(curl -s https://codecov.io/bash)
   - coala
 
